@@ -50,7 +50,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 		private StopOrderTypes stopOrderType = StopOrderTypes.StopMarket;
 		private OrderType orderType;
 		
-		private bool tradingFromChart = false;
+		private bool tradingFromChart = true;
 		
 		#region Chart Trader Buttons
 		
@@ -61,8 +61,6 @@ namespace NinjaTrader.NinjaScript.Indicators
 		private System.Windows.Controls.Button			activateButton1;
 		private bool									panelActive;
 		private System.Windows.Controls.TabItem			tabItem;
-		
-		private bool myButtonClicked = false;
 		
 		#endregion
 
@@ -193,20 +191,9 @@ namespace NinjaTrader.NinjaScript.Indicators
 		#region Button Click Events
 		protected void Button1Click(object sender, RoutedEventArgs e)
 		{
-			if (myButtonClicked == false)
-			{
-				activateButton1.Background		= Brushes.Green;
-				activateButton1.Content = "Trading from chart on";
-				tradingFromChart = true;
-				myButtonClicked = true;
-			}
-			else
-			{
-				activateButton1.Background		= Brushes.Red;
-				activateButton1.Content = "Trading from chart off";
-				tradingFromChart = false;
-				myButtonClicked = false;
-			}
+			activateButton1.Background		= Brushes.Green;
+			activateButton1.Content = "Trading from chart on";
+			tradingFromChart = true;
 			
 			
 		}
@@ -258,7 +245,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 					activateButton1 = new System.Windows.Controls.Button()//1
 					{		
 						
-						Content			= "Trading from chart off",
+						Content			= "Trading from chart on",
 						Height			= 25, 
 						Margin			= new Thickness(5,0,5,0),
 						Padding			= new Thickness(0,0,0,0),
@@ -271,7 +258,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 				#region Button Colors
 					
 					//Row1
-					activateButton1.Background		= Brushes.Red;
+					activateButton1.Background		= Brushes.Green;
 					activateButton1.BorderBrush		= Brushes.Black;	
 					activateButton1.Foreground    	= Brushes.White;	
 					activateButton1.BorderThickness = new Thickness(2.0);
